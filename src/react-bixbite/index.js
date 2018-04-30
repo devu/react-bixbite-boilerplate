@@ -2,8 +2,14 @@
 
 import BixBite from './BixBite'
 
+BixBite.spawnCore('MAIN')
+
 const spawnCore = (id) => {
   return BixBite.spawnCore(id)
+}
+
+const getCore = (id) => {
+  return BixBite.getCore(id)
 }
 
 const registerReducers = (reducers) => {
@@ -14,5 +20,8 @@ const registerServices = (services) => {
   BixBite.registerServices(services)
 }
 
-export { spawnCore, registerReducers, registerServices }
-export { default } from './Container'
+const connect = (component, id) => {
+  BixBite.connect(component, id)
+}
+
+export { spawnCore, getCore, registerReducers, registerServices, connect }

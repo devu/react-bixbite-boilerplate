@@ -1,11 +1,15 @@
-import React, { Fragment } from 'react';
-import Container from '../react-bixbite';
+import React, { Component, Fragment } from 'react';
+import { connect } from '../react-bixbite';
 
 import FilterableProductTable from './PageOne';
 
-class Root extends Container {
-  constructor(coreId) {
-    super(coreId);
+import Router from '../compounds/Router'
+
+class Root extends Component {
+  constructor() {
+    super()
+
+    connect(this)
     
     this.on('ROOT_INITIALISED', state => {
       this.setState(state)
@@ -23,10 +27,12 @@ class Root extends Container {
   render() {
     return (
       <Fragment>
-        <FilterableProductTable products={this.state.products} />
+        <Router>
+          <FilterableProductTable products={this.state.products} />
+        </Router>
       </Fragment>
     )
   }
 }
 
-export default Root;
+export default Root
