@@ -1,26 +1,33 @@
 /* eslint no-console: 0 */
 
-import { Component } from 'react'
-import PropTypes from 'prop-types'
-import { spawnCore, connect } from '../../../react-bixbite'
-import RouterReducer from '../reducers/RouterReducer'
+import { Component } from 'react';
+import PropTypes from 'prop-types';
+import { spawnCore, connect } from '../../../react-bixbite';
+import RouterReducer from '../reducers/RouterReducer';
 
 class Router extends Component {
-  constructor(){
+  constructor() {
     super()
+
+    this.state = {
+      route: null
+    }
 
     const core = spawnCore('ROUTER')
     core.registerControler(RouterReducer)
-    connect(this, 'ROUTER')
+    connect(this, core.id)
+
+    this.on('ROUTE_HAS_CHANGED', route => {
+      this.setState({ route })
+    })
   }
 
   componentWillMount(){
-    console.log('Router')
-    this.send('ROUTER_INIT')
+    this.send('ROUTER_INIT', this.props.children)
   }
 
-  render(){
-    return {...this.props.children}
+  render() {
+    return this.state.route
   }
 }
 
@@ -29,7 +36,7 @@ Router.propTypes = {
 }
 
 Router.defaultProps = {
-  children: {}
-}
+  children: {},
+};
 
-export default Router
+export default Router;

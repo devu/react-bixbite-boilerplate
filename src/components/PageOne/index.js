@@ -1,3 +1,4 @@
+/* eslint no-console: 0 */
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types'
 
@@ -6,6 +7,7 @@ import ProductTable from './ProductTable'
 
 class FilterableProductTable extends React.Component {
   render() {
+    console.log('FilterableProductTable::render')
     return (
       <Fragment>
         <SearchBar />
