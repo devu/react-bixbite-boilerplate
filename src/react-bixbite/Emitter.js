@@ -16,6 +16,7 @@ class Emitter {
     c.uid = `@${this.getUID()}::${this.id}`
     c.on = (type, cb) => this.addSlot(channelV, c.uid, type, cb, c)
     c.send = (type, signal) => this.broadcast(channelC, type, signal)
+    c.removeSlot = (type) => this.removeSlot(channelV, c.uid, type)
   }
 
   registerReducer = R => {
@@ -27,6 +28,7 @@ class Emitter {
     reducer.send = (type, signal) => this.broadcast(channelV, type, signal)
     reducer.request = (type, signal) => this.broadcast(channelD, type, signal)
     reducer.emit = (type, signal) => this.broadcast(channelC, type, signal)
+    reducer.removeSlot = (type) => this.removeSlot(channelC, uid, type)
     reducer.init()
     return reducer
   }

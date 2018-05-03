@@ -1,16 +1,18 @@
 /* browser support: https://caniuse.com/#search=onhashchange */
 
+const INIT = 'ROUTER_INIT'
+
 class RouterReducer {
   constructor() {
     this.isSupported = false
-    this.currentHash = ''
+    this.currentHash = '#'
     this.history = []
     this.routes = []
     this.defaultRoute = []
   }
 
   init() {
-    this.on('ROUTER_INIT', children => {
+    this.on(INIT, ({ children, defaultPath }) => {
       this.isSupported = 'onhashchange' in window
       if (this.isSupported) {
         children.map(child => {
@@ -18,10 +20,11 @@ class RouterReducer {
           this.routes.push({ children, rule })
           if (isDefault) this.defaultRoute = children
         })
-        this.currentHash = window.location.hash
         window.onhashchange = this.locationHashChanged
-        this.send('ROUTE_HAS_CHANGED', { children: this.findRoute(), path: this.currentHash })
+        window.location.hash = defaultPath || '/'
       }
+
+      this.removeSlot(INIT)
     })
   }
 

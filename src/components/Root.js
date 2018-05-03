@@ -29,7 +29,7 @@ class Root extends Component {
     console.log('Root::render')
     return (
       <Fragment>
-        <Router defaultRoute={'/page/1'}>
+        <Router defaultPath={'/page/1'}>
           <Route isDefault>
             <p> not found 404 </p>
           </Route>
@@ -40,14 +40,6 @@ class Root extends Component {
           <Route rule={'/page/2'}>
             <p> Page 2 </p>
             <FilterableProductTable products={this.state.products} />
-            <Router>
-              <Route rule={'/sub/1'}>
-                <p> Sub 1 </p>
-              </Route>
-              <Route rule={'/sub/2'}>
-                <p> Sub 2 </p>
-              </Route>
-            </Router>
           </Route>
         </Router>
       </Fragment>
