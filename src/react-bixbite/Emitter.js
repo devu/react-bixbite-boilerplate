@@ -18,17 +18,17 @@ class Emitter {
     c.send = (type, signal) => this.broadcast(channelC, type, signal)
   }
 
-  registerControler = C => {
+  registerReducer = R => {
     const { channelC, channelD, channelV } = this.channels
     const uid = `@${this.getUID()}::${this.id}`
-    const controler = new C()
-    controler.uid = uid
-    controler.on = (type, cb) => this.addSlot(channelC, uid, type, cb, C)
-    controler.send = (type, signal) => this.broadcast(channelV, type, signal)
-    controler.request = (type, signal) => this.broadcast(channelD, type, signal)
-    controler.emit = (type, signal) => this.broadcast(channelC, type, signal)
-    controler.init()
-    return controler
+    const reducer = new R()
+    reducer.uid = uid
+    reducer.on = (type, cb) => this.addSlot(channelC, uid, type, cb, R)
+    reducer.send = (type, signal) => this.broadcast(channelV, type, signal)
+    reducer.request = (type, signal) => this.broadcast(channelD, type, signal)
+    reducer.emit = (type, signal) => this.broadcast(channelC, type, signal)
+    reducer.init()
+    return reducer
   }
 
   registerService = S => {

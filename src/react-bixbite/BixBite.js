@@ -7,7 +7,7 @@ class BxBite {
     this.cores = {}
   }
 
-  spawnCore = (id) => {
+  spawnCore = id => {
     return (this.cores[id] = new Core(id))
   }
 
@@ -19,10 +19,10 @@ class BxBite {
     }
   }
 
-  registerControler = (controler, id) => this.getCore(id).registerControler(controler)
+  registerReducer = (reducer, id) => this.getCore(id).registerReducer(reducer)
 
-  registerControlers = (controlers, id) => {
-    controlers.forEach(controler => this.registerControler(controler, id))
+  registerReducers = (reducers, id) => {
+    reducers.forEach(reducer => this.registerReducer(reducer, id))
   }
 
   registerService = (service, id) => {
@@ -30,7 +30,7 @@ class BxBite {
   }
 
   registerServices = (services, id) => {
-    services.forEach(service => this.registerControler(service, id))
+    services.forEach(service => this.registerService(service, id))
   }
 
   connect = (component, id) => {

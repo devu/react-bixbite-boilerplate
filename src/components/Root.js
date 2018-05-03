@@ -1,10 +1,10 @@
 /* eslint no-console: 0 */
-import React, { Component, Fragment } from 'react';
-import { connect } from '../react-bixbite';
+import React, { Component, Fragment } from 'react'
+import { connect } from '../react-bixbite'
 
-import FilterableProductTable from './PageOne';
+import FilterableProductTable from './PageOne'
 
-import Router, { Route } from '../compounds/Router';
+import Router, { Route } from '../compounds/Router'
 
 class Root extends Component {
   constructor() {
@@ -14,7 +14,7 @@ class Root extends Component {
 
     this.on('ROOT_INITIALISED', state => {
       this.setState(state)
-    });
+    })
   }
 
   componentWillMount() {
@@ -29,22 +29,29 @@ class Root extends Component {
     console.log('Root::render')
     return (
       <Fragment>
-        <Router>
-          <Route rule={'page1'}>
+        <Router defaultRoute={'/page/1'}>
+          <Route isDefault>
+            <p> not found 404 </p>
+          </Route>
+          <Route rule={'/page/1'}>
             <p> Page 1 </p>
             <FilterableProductTable products={this.state.products} />
           </Route>
-          <Route rule={'page2'}>
+          <Route rule={'/page/2'}>
             <p> Page 2 </p>
             <FilterableProductTable products={this.state.products} />
-          </Route>
-          <Route rule={'page3'}>
-            <p> Page 3 </p>
-            <FilterableProductTable products={this.state.products} />
+            <Router>
+              <Route rule={'/sub/1'}>
+                <p> Sub 1 </p>
+              </Route>
+              <Route rule={'/sub/2'}>
+                <p> Sub 2 </p>
+              </Route>
+            </Router>
           </Route>
         </Router>
       </Fragment>
-    );
+    )
   }
 }
 

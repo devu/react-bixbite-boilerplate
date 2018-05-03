@@ -20,7 +20,7 @@ class Route extends Component {
 }
 
 Route.propTypes = {
-  component: PropTypes.any,
+  component: PropTypes.any
 }
 
 export default Route

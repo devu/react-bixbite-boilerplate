@@ -4,19 +4,19 @@ import BixBite from './BixBite'
 
 BixBite.spawnCore('MAIN')
 
-const spawnCore = (id) => {
+const spawnCore = id => {
   return BixBite.spawnCore(id)
 }
 
-const getCore = (id) => {
+const getCore = id => {
   return BixBite.getCore(id)
 }
 
-const registerReducers = (reducers) => {
-  BixBite.registerControlers(reducers)
+const registerReducers = reducers => {
+  BixBite.registerReducers(reducers)
 }
 
-const registerServices = (services) => {
+const registerServices = services => {
   BixBite.registerServices(services)
 }
 

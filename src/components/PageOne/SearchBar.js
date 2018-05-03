@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import PropTypes from 'prop-types'
 
 class SearchBar extends React.Component {
@@ -7,12 +7,10 @@ class SearchBar extends React.Component {
       <form>
         <input type="text" placeholder="Search..." />
         <p>
-          <input type="checkbox" />
-          {' '}
-          Only show products in stock
+          <input type="checkbox" /> Only show products in stock
         </p>
       </form>
-    );
+    )
   }
 }
 
@@ -20,4 +18,4 @@ SearchBar.propTypes = {
   products: PropTypes.array
 }
 
-export default SearchBar;
+export default SearchBar

@@ -1,5 +1,5 @@
-import React from "react"
-import ReactDOM from "react-dom"
+import React from 'react'
+import ReactDOM from 'react-dom'
 import { getCore, registerReducers, registerServices } from '../react-bixbite'
 
 import Root from './Root'
@@ -11,12 +11,10 @@ const core = getCore('MAIN')
 registerReducers([AppReducer], core.id)
 registerServices([AppService], core.id)
 
-const ROOT_NODE = document.getElementById("app")
+const ROOT_NODE = document.getElementById('app')
 
 const App = () => {
-  return (
-    <Root/>
-  )
+  return <Root />
 }
 export default App
 

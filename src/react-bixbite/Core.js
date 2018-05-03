@@ -1,12 +1,12 @@
 import Emitter from './Emitter'
 
 class Core extends Emitter {
-  registerControlers = controlers => {
-    controlers.forEach(controler => this.registerControler(controler))
+  registerReducers = reducers => {
+    reducers.forEach(reducer => this.registerReducer(reducer))
   }
 
   registerServices = services => {
-    services.forEach(service => this.registerControler(service))
+    services.forEach(service => this.registerService(service))
   }
 }
 
