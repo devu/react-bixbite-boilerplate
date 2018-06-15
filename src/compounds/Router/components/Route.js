@@ -11,7 +11,7 @@ class Route extends Component {
   }
 
   componentDidMount() {
-    console.log('Route::didmount', this.props.component)
+    console.log('Route::componentDidMount', this.props.component)
   }
 
   render() {

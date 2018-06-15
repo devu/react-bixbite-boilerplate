@@ -4,7 +4,7 @@
   "description": "Minimal boilerplate (starterkit) to work with Bixbite state manager and React",
   "main": "./src/index.js",
   "scripts": {
-    "start": "webpack-dev-server --mode development --open",
+    "start": "webpack-dev-server --mode development --open --port 8080 --content-base build/",
     "dev": "webpack --mode development",
     "build": "rm -rf dist && webpack --mode production",
     "test": "test"
@@ -26,8 +26,12 @@
   },
   "homepage": "https://github.com/devu/react-bixbite-boilerplate#readme",
   "dependencies": {
+    "node-sass": "^4.9.0",
+    "postcss-loader": "^2.1.5",
     "react": "^16.3.2",
-    "react-dom": "^16.3.2"
+    "react-dom": "^16.3.2",
+    "sass-loader": "^7.0.1",
+    "svg-inline-loader": "^0.8.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",

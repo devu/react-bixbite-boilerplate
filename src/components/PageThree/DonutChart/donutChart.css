@@ -1,0 +1,50 @@
+.donut-chart {
+  padding: 4px;
+}
+
+.donutchart-overlay {
+  background: no-repeat;
+  background-size: cover;
+  background-image: url('/background--dashboard.png');
+  background-attachment: fixed;
+  background-position: center top;
+  position: absolute;
+  width: 342px;
+  height: 342px;
+  border-radius: 50%;
+  filter: blur(5px);
+}
+
+.donutchart {
+  position: absolute;
+  border-radius: 50%;
+  display: block;
+  padding: 4px;
+}
+
+.donutchart-progress {
+  fill: transparent;
+  stroke: #A4E1EB;
+  stroke-width: 4;
+  stroke-dasharray: 0 1000;
+}
+
+.donutchart-dashboard{
+  color: #fff;
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  margin: 40px auto;
+}
+.donutchart-title{
+  font-size: 12px;
+}
+.donutchart-text-val{
+  font-size:72px;
+}
+.donutchart-text-out-of{
+  font-size:22px;
+}
+.donutchart-text-percent{
+  font-size:22px;
+}

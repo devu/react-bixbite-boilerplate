@@ -3,8 +3,11 @@ import React, { Component, Fragment } from 'react'
 import { connect } from '../react-bixbite'
 
 import FilterableProductTable from './PageOne'
+import SomeExperiment from './PageTwo'
 
 import Router, { Route } from '../compounds/Router'
+import MainLayout from './PageThree/MainLayout';
+import Dashboard from './PageThree/Dashboard/Dashboard';
 
 class Root extends Component {
   constructor() {
@@ -29,7 +32,7 @@ class Root extends Component {
     console.log('Root::render')
     return (
       <Fragment>
-        <Router defaultPath={'/page/1'}>
+        <Router defaultPath={'/page/3'}>
           <Route isDefault>
             <p> not found 404 </p>
           </Route>
@@ -39,7 +42,13 @@ class Root extends Component {
           </Route>
           <Route rule={'/page/2'}>
             <p> Page 2 </p>
-            <FilterableProductTable products={this.state.products} />
+            <SomeExperiment />
+          </Route>
+          <Route rule={'/page/3'}>
+            <p> Page 3 </p>
+            <MainLayout>
+             <Dashboard /> 
+            </MainLayout>
           </Route>
         </Router>
       </Fragment>
